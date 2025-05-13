@@ -158,8 +158,8 @@ img {
 
 #mouse-dot {
     position: absolute;
-    width: 7px;
-    height: 7px;
+    width: 0.7vw;
+    height: 0.7vw;
     background-color: red;
     border-radius: 50%;
     pointer-events: none;
