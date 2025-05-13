@@ -5,7 +5,7 @@ let mots = document.querySelectorAll('.venom span, #stayput'); // Ajoute #staypu
 const huh = document.querySelector('#huh');
 const huh2 = document.querySelector('#huh2');
 const stayput = document.querySelector('#stayput');
-const dot = document.querySelector('#mouse-dot');
+const target = document.querySelector('#target');
 
 let p = 0;
 let canScroll = true;
@@ -96,25 +96,25 @@ window.addEventListener('wheel', (event) => {
   }
 
   canScroll = false;
-  setTimeout(() => {
+  setTimeout(() => { //temps de délai pour scroll
     canScroll = true;
-  }, 300);
+  }, 250);
 }, { passive: false });
 
-// Cible souris (effet "dot" au survol de Stay Put)
+// Cible souris = survole de stayput
 stayput.addEventListener('mouseenter', () => {
   if (O.classList.contains('flipped')) {
-    dot.style.opacity = 1;
+    target.style.opacity = 1;
   }
 });
 
-stayput.addEventListener('mouseleave', () => {
-  dot.style.opacity = 0;
+stayput.addEventListener('mouseleave', () => { //disparition si hors du mot
+  target.style.opacity = 0;
 });
 
 stayput.addEventListener('mousemove', (e) => {
   if (!O.classList.contains('flipped')) return;
   const offset = 15;
-  dot.style.left = (e.pageX + offset) + 'px';
-  dot.style.top = (e.pageY + offset) + 'px';
+  target.style.left = (e.pageX + offset) + 'px'; //décalage du rond à la souris
+  target.style.top = (e.pageY + offset) + 'px';
 });
